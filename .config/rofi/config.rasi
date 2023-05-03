@@ -1,0 +1,16 @@
+configuration{
+    modi: "drun";
+    font: "FiraCode Nerd Font Mono 10";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: " Apps ";
+    sidebar-mode: true;
+}
+
+//@theme "themes/catppuccin-frappe"
+
+@theme "/home/tsousa/.config/rofi/themes/catppuccin-frappe.rasi"
