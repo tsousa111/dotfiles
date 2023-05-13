@@ -36,6 +36,8 @@ if [[ -f /usr/bin/prime-offload ]]; then
     /usr/bin/prime-offload
 fi
 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 setxkbmap -layout us,pt
 setxkbmap -option grp:win_space_toggle
 xrandr --auto
