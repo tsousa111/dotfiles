@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("j-hui/fidget.nvim")
 
+    use("norcalli/nvim-colorizer.lua")
 
     use("nvim-orgmode/orgmode")
     use("lervag/vimtex")
