@@ -16,4 +16,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/tsousa/.ghcup/bin $PATH # ghcup-env
 fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
-#neofetch
+
+starship init fish | source
+

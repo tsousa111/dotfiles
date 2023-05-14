@@ -47,5 +47,5 @@ return require('packer').startup(function(use)
 
     -- Colorscheme section
     use("catppuccin/nvim")
-    use("folke/tokyonight.nvim")
+    use("ellisonleao/gruvbox.nvim")
 end)
