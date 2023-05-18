@@ -11,6 +11,4 @@ configuration{
     sidebar-mode: true;
 }
 
-//@theme "themes/catppuccin-frappe"
-
 @theme "/home/tsousa/.config/rofi/themes/catppuccin-frappe.rasi"
