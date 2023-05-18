@@ -40,10 +40,16 @@ fi
 
 setxkbmap -layout us,pt
 setxkbmap -option grp:win_space_toggle
-xrandr --auto
-xrandr --output HDMI-1-0 --above eDP-1
-exec i3
 
-if [[ -f /usr/bin/prime-switch ]]; then
-    sudo /usr/bin/prime-switch
+gpu_mode=$(/usr/bin/envycontrol -q)
+if [[ "$gpu_mode" == "nvidia" ]]; then
+    xrandr --setprovideroutputsource modesetting NVIDIA-0
+    xrandr --auto
+    xrandr --output HDMI-0 --above eDP-1-1
+    xrandr --output HDMI-0 --primary
+else
+    xrandr --auto
+    xrandr --output HDMI-1-0 --above eDP-1
+    xrandr --output HDMI-1-0 --primary
 fi
+exec i3
