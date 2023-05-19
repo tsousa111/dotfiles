@@ -10,6 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $browser firefox
+set $terminal alacritty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -63,7 +65,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec $terminal 
 
 # kill focused window
 bindsym $mod+q kill
@@ -79,6 +81,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # start power menu (rofi)
 bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/scripts/powermenu.sh
 
+# launch a browser
+bindsym $mod+b exec --no-startup-id $browser
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -104,7 +108,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
