@@ -32,7 +32,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-if [[ -f /usr/bin/prime-offload ]]; then
+if [ -f /usr/bin/prime-offload ]; then
     /usr/bin/prime-offload
 fi
 
@@ -42,7 +42,7 @@ setxkbmap -layout us,pt
 setxkbmap -option grp:win_space_toggle
 
 gpu_mode=$(/usr/bin/envycontrol -q)
-if [[ "$gpu_mode" == "nvidia" ]]; then
+if [ "$gpu_mode" = "nvidia" ]; then
     xrandr --setprovideroutputsource modesetting NVIDIA-0
     xrandr --auto
     xrandr --output HDMI-0 --above eDP-1-1
