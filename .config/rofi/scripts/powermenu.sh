@@ -4,7 +4,7 @@ OPTIONS="Suspend\nLock\nReboot\nShutdown\nExit i3\n"
 LAUNCHER="rofi -dmenu -i -p Power"
 LOCKER="betterlockscreen -l"
 
-option=$(echo -e "$OPTIONS" | $LAUNCHER | awk '{print $1}' | tr -d '\r\n') # fix -e flag
+option=$(printf '%s'"$OPTIONS" | $LAUNCHER | awk '{print $1}' | tr -d '\r\n')
 
 if [ ${#option} -gt 0 ]
 then
