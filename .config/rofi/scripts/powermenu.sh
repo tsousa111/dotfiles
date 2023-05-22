@@ -1,10 +1,10 @@
-#! /usr/bin/env bash
-OPTIONS="Suspend\nLock\nReboot\nPower-off\nExit i3\n"
+#! /bin/sh
+OPTIONS="Suspend\nLock\nReboot\nShutdown\nExit i3\n"
 
 LAUNCHER="rofi -dmenu -i -p Power"
 LOCKER="betterlockscreen -l"
 
-option=$(echo -e "$OPTIONS" | $LAUNCHER | awk '{print $1}' | tr -d '\r\n') 
+option=$(echo -e "$OPTIONS" | $LAUNCHER | awk '{print $1}' | tr -d '\r\n') # fix -e flag
 
 if [ ${#option} -gt 0 ]
 then
@@ -18,7 +18,7 @@ then
         Lock)
             $LOCKER
             ;;
-        Power-off)
+        Shutdown)
             systemctl poweroff
             ;;
         Exit)
