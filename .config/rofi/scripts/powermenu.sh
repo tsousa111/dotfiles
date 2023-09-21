@@ -10,7 +10,7 @@ if [ ${#option} -gt 0 ]
 then
     case $option in
         Suspend)
-           $LOCKER ;systemctl suspend
+           $LOCKER && systemctl suspend
             ;; 
         Reboot)
             systemctl reboot

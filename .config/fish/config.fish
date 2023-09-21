@@ -19,3 +19,11 @@ fish_add_path $HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
 
 starship init fish | source
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/tsousa/miniconda3/bin/conda
+    eval /home/tsousa/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+

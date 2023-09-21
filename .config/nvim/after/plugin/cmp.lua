@@ -154,13 +154,11 @@ cmp.setup {
             { name = 'luasnip' },
             { name = 'nvim_lsp_signature_help' },
             { name = "path" },
+            { name = "orgmode" }
         },
         {
             --This sources will only show up if there aren't any sources from the other list
             { name = "buffer", keyword_length = 5 },
-        },
-        {
-            { name = "orgmode" }
         }
     ),
     confirm_opts = {
