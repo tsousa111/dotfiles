@@ -40,4 +40,4 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/home/tsousa/\x2ecargo/bin\x1e/home/tsousa/\x2elocal/share/nvim/mason/bin\x1e/home/tsousa/\x2erustup/toolchains/nightly\x2dx86_64\x2dunknown\x2dlinux\x2dgnu/bin
+SETUVAR fish_user_paths:/home/tsousa/\x2econfig/emacs/bin\x1e/home/tsousa/\x2ecargo/bin\x1e/home/tsousa/\x2elocal/share/nvim/mason/bin\x1e/home/tsousa/\x2erustup/toolchains/nightly\x2dx86_64\x2dunknown\x2dlinux\x2dgnu/bin

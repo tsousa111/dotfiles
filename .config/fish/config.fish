@@ -17,6 +17,7 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; se
 fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
 fish_add_path $HOME/.cargo/bin/
+fish_add_path $HOME/.config/emacs/bin
 
 starship init fish | source
 
