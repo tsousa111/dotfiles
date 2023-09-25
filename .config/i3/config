@@ -210,15 +210,15 @@ bindsym $mod+r mode "resize"
 gaps inner 10
 gaps top 40
 
-
-# anchor programs to specific workspaces
 assign [class="^tidal-hifi$"] 4
+assign [class="discord"] 5
 
 # startup programs
 exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 2; exec firefox; workspace 1; exec alacritty'
 exec --no-startup-id picom -b
+exec --no-startup-id openrgb -d 0 -m off -d 1 -m off 
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 
 #mode "Power menu: [e]xit i3 | [S-s]hutdown | [s]uspend | [r]eboot" {

@@ -9,19 +9,30 @@ return require('packer').startup(function(use)
     use("tpope/vim-fugitive")
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
-    use("j-hui/fidget.nvim")
+
+    -- fidget change when rewrite version comes out
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+            require("fidget").setup {
+                -- options
+            }
+        end,
+    }
 
     use("norcalli/nvim-colorizer.lua")
 
     use("nvim-orgmode/orgmode")
     use("lervag/vimtex")
 
-    use({"hrsh7th/nvim-cmp",
+    use({
+        "hrsh7th/nvim-cmp",
         requires = {
             "hrsh7th/cmp-nvim-lsp", -- lsp
-            "hrsh7th/cmp-buffer", --buffer completions
-            "hrsh7th/cmp-path", --path completions
-            "hrsh7th/cmp-cmdline" --cmdline completions
+            "hrsh7th/cmp-buffer",   --buffer completions
+            "hrsh7th/cmp-path",     --path completions
+            "hrsh7th/cmp-cmdline"   --cmdline completions
         },
     })
 
@@ -31,11 +42,12 @@ return require('packer').startup(function(use)
     use("neovim/nvim-lspconfig")
     use("mfussenegger/nvim-jdtls")
     use("jose-elias-alvarez/null-ls.nvim")
-    use({"L3MON4D3/LuaSnip",
-			requires = {
-				"saadparwaiz1/cmp_luasnip"
-			},
-		})
+    use({
+        "L3MON4D3/LuaSnip",
+        requires = {
+            "saadparwaiz1/cmp_luasnip"
+        },
+    })
 
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
