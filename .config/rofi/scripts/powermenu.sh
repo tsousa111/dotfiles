@@ -1,5 +1,5 @@
 #! /bin/sh
-OPTIONS="Suspend\nLock\nReboot\nShutdown\nExit i3\n"
+OPTIONS="Suspend\nLock\nRestart\nShutdown\nExit i3\n"
 
 LAUNCHER="rofi -dmenu -i -p Power"
 LOCKER="betterlockscreen -l"
