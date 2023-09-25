@@ -11,7 +11,7 @@ bind "[3;5~" kill-word
 
 export EDITOR="nvim"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
+export MANROFFOPT="-c"
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/tsousa/.ghcup/bin $PATH # ghcup-env
 fish_add_path $HOME/.local/share/nvim/mason/bin/
