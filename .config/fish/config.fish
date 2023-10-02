@@ -3,6 +3,8 @@ if status is-interactive
 end
 source $HOME/.config/fish/myFunctions/alias.fish
 source $HOME/.config/fish/myFunctions/dotfiles.fish
+source $HOME/.config/fish/myFunctions/wgetbb.fish
+
 
 fish_vi_key_bindings
 bind \cH backward-kill-path-component
@@ -28,4 +30,4 @@ if test -f /home/tsousa/miniconda3/bin/conda
     eval /home/tsousa/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 # <<< conda initialize <<<
-
+conda deactivate
