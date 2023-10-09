@@ -16,6 +16,6 @@ require('nvim-treesitter.configs').setup {
 }
 
 require('orgmode').setup({
-    org_agenda_files = { '~/Nextcloud/org/*', '~/my-orgs/**/*' },
+    org_agenda_files = '~/Nextcloud/org/**/*',
     org_default_notes_file = '~/Nextcloud/org/refile.org',
 })
