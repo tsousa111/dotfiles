@@ -210,7 +210,7 @@ bindsym $mod+r mode "resize"
 gaps inner 10
 gaps top 40
 
-assign [class="^tidal-hifi$"] 4
+assign [class="^tidal-hifi$"] 5
 assign [class="discord"] 5
 
 # startup programs
