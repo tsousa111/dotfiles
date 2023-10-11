@@ -1,6 +1,7 @@
 return {
     "hrsh7th/nvim-cmp",
-            dependencies = {
+    event = "InsertEnter",
+    dependencies = {
             'hrsh7th/cmp-nvim-lsp',                -- lsp
             'hrsh7th/cmp-nvim-lua',                -- Nvim API completions
             'hrsh7th/cmp-nvim-lsp-signature-help', -- Show function signatures
@@ -11,7 +12,7 @@ return {
             'rafamadriz/friendly-snippets',
             'saadparwaiz1/cmp_luasnip',
         },
-    opts = function(_, opts)
+    config = function()
         local cmp_status_ok, cmp = pcall(require, "cmp")
         if not cmp_status_ok then
             return
