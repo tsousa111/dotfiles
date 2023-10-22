@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
     use("williamboman/mason-lspconfig.nvim")
     use("hrsh7th/cmp-nvim-lsp")
     use("neovim/nvim-lspconfig")
-    use("jose-elias-alvarez/null-ls.nvim")
+    use("nvimtools/none-ls.nvim")
     use({
         "L3MON4D3/LuaSnip",
         requires = {
