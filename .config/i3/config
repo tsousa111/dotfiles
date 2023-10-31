@@ -71,7 +71,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/launchers/type-6/launcher.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -79,7 +79,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # start power menu (rofi)
-bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/scripts/powermenu.sh
+bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/applets/bin/powermenu.sh
 
 # launch a browser
 bindsym $mod+b exec --no-startup-id $browser

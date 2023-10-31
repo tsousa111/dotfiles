@@ -1,16 +1,22 @@
 [global]
 frame_color = "#8AADF4"
 separator_color= frame
+width = (200,370)
+height = 350
+font = Roboto Mono Nerd Font 9
 
 [urgency_low]
 background = "#24273A"
 foreground = "#CAD3F5"
+timeout = 3
 
 [urgency_normal]
 background = "#24273A"
 foreground = "#CAD3F5"
+timeout = 5
 
 [urgency_critical]
 background = "#24273A"
 foreground = "#CAD3F5"
 frame_color = "#F5A97F"
+timeout = 10

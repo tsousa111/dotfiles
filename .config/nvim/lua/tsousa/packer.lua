@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
     use("nvim-treesitter/playground")
     use("romgrk/nvim-treesitter-context")
 
+    use("runoshun/vim-alloy")
     -- Colorscheme section
     use("catppuccin/nvim")
     use("ellisonleao/gruvbox.nvim")
