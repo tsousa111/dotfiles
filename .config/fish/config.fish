@@ -1,10 +1,8 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-source $HOME/.config/fish/myFunctions/alias.fish
-source $HOME/.config/fish/myFunctions/dotfiles.fish
-source $HOME/.config/fish/myFunctions/wgetbb.fish
 
+source $HOME/.config/fish/aliasrc
 
 fish_vi_key_bindings
 bind \cH backward-kill-path-component
