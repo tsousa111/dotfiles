@@ -2,6 +2,9 @@
 add_newline = false
 palette = "catppuccin_macchiato"
 
+format = "$directory$character"
+right_format = "$all"
+
 [line_break]
 disabled = true
 
@@ -10,12 +13,15 @@ disabled = true
 
 [aws]
 symbol = "  "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [buf]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [c]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [conda]
 symbol = " "
@@ -28,12 +34,15 @@ read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [elixir]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [elm]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [fossil_branch]
 symbol = " "
@@ -43,12 +52,14 @@ symbol = " "
 
 [golang]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [guix_shell]
 symbol = " "
 
 [haskell]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [haxe]
 symbol = " "
@@ -61,12 +72,15 @@ ssh_symbol = " "
 
 [java]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [julia]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [lua]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [memory_usage]
 symbol = "󰍛 "
@@ -76,12 +90,14 @@ symbol = "󰔷 "
 
 [nim]
 symbol = "󰆥 "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [nix_shell]
 symbol = " "
 
 [nodejs]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [os.symbols]
 Alpaquita = " "
@@ -132,18 +148,29 @@ symbol = " "
 
 [python]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [rlang]
 symbol = "󰟔 "
 
 [ruby]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [rust]
 symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [scala]
 symbol = " "
+
+[vagrant]
+symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
+
+[zig]
+symbol = "↯ "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
