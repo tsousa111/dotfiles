@@ -207,8 +207,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # window settings
-gaps inner 10
-gaps top 40
+gaps inner 5
+gaps top 37
 
 assign [class="^tidal-hifi$"] 5
 assign [class="discord"] 5
