@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
     use("tpope/vim-fugitive")
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
+    use("nvim-tree/nvim-web-devicons")
 
     -- fidget change when rewrite version comes out
     use {
@@ -20,7 +21,6 @@ return require('packer').startup(function(use)
             }
         end,
     }
-
     use("norcalli/nvim-colorizer.lua")
 
     use("lervag/vimtex")
@@ -28,24 +28,22 @@ return require('packer').startup(function(use)
     use({
         "hrsh7th/nvim-cmp",
         requires = {
-            "hrsh7th/cmp-nvim-lsp", -- lsp
-            "hrsh7th/cmp-buffer",   --buffer completions
-            "hrsh7th/cmp-path",     --path completions
-            "hrsh7th/cmp-cmdline"   --cmdline completions
+            'hrsh7th/cmp-nvim-lsp',                -- lsp
+            'hrsh7th/cmp-nvim-lua',                -- Nvim API completions
+            'hrsh7th/cmp-nvim-lsp-signature-help', -- Show function signatures
+            'hrsh7th/cmp-buffer',                  --buffer completions
+            'hrsh7th/cmp-path',                    --path completions
+            'hrsh7th/cmp-cmdline',                 --cmdline completions
+            'L3MON4D3/LuaSnip',
+            'rafamadriz/friendly-snippets',
+            'saadparwaiz1/cmp_luasnip',
         },
     })
 
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
-    use("hrsh7th/cmp-nvim-lsp")
     use("neovim/nvim-lspconfig")
     use("nvimtools/none-ls.nvim")
-    use({
-        "L3MON4D3/LuaSnip",
-        requires = {
-            "saadparwaiz1/cmp_luasnip"
-        },
-    })
 
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
