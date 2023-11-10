@@ -19,8 +19,8 @@ return {
         }
 
         require('orgmode').setup({
-            org_agenda_files = { '~/Nextcloud/Documents/uni/**/*' },
-            org_default_notes_file = '~/Nextcloud/Documents/uni/refile.org',
+            org_agenda_files = { '~/Nextcloud/org/**/*' },
+            org_default_notes_file = '~/Nextcloud/org/refile.org',
         })
     end
 }
