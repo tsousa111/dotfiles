@@ -9,18 +9,11 @@ return require('packer').startup(function(use)
     use("tpope/vim-fugitive")
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
-    use("nvim-tree/nvim-web-devicons")
+    use("stevearc/dressing.nvim")
 
     -- fidget change when rewrite version comes out
-    use {
-        'j-hui/fidget.nvim',
-        tag = 'legacy',
-        config = function()
-            require("fidget").setup {
-                -- options
-            }
-        end,
-    }
+    use("j-hui/fidget.nvim")
+
     use("norcalli/nvim-colorizer.lua")
 
     use("lervag/vimtex")
@@ -51,7 +44,10 @@ return require('packer').startup(function(use)
 
 
     use("nvim-orgmode/orgmode")
-    use('nvim-lualine/lualine.nvim')
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" }
+    })
 
     use("nvim-treesitter/playground")
     use("romgrk/nvim-treesitter-context")

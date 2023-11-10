@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
     use("nvim-lua/popup.nvim")
     use("nvim-telescope/telescope.nvim")
     use("tpope/vim-surround")
+    use("stevearc/dressing.nvim")
     use("mbbill/undotree")
 
     -- fidget change when rewrite version comes out
