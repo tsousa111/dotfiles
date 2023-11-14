@@ -8,7 +8,6 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 set $mod Mod1
 set $mod2 Mod4
 set $browser firefox
@@ -181,35 +180,45 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+# set colorscheme
+set $red       #ed8796
+set $rosewater #f4dbd6
+set $flamingo  #f0c6c6
+set $pink      #f5bde6
+set $mauve     #c6a0f6
+set $maroon    #ee99a0
+set $peach     #f5a97f
+set $green     #a6da95
+set $teal      #8bd5ca
+set $sky       #91d7e3
+set $sapphire  #7dc4e4
+set $blue      #8aadf4
+set $lavender  #b7bdf8
+set $text      #cad3f5
+set $subtext1  #b8c0e0
+set $subtext0  #a5adcb
+set $overlay2  #939ab7
+set $overlay1  #8087a2
+set $overlay0  #6e738d
+set $surface2  #5b6078
+set $surface1  #494d64
+set $surface0  #363a4f
+set $base      #24273a
+set $mantle    #1e2030
+set $crust     #181926
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
 # resize window (you can also use the mouse for that)
 bindsym $mod2+Shift+h resize shrink width 10 px or 10 ppt
 bindsym $mod2+Shift+j resize grow height 10 px or 10 ppt
 bindsym $mod2+Shift+k resize shrink height 10 px or 10 ppt
 bindsym $mod2+Shift+l resize grow width 10 px or 10 ppt
-#mode "resize" {
-#        # These bindings trigger as soon as you enter the resize mode
-#
-#        # Pressing left will shrink the window’s width.
-#        # Pressing right will grow the window’s width.
-#        # Pressing up will shrink the window’s height.
-#        # Pressing down will grow the window’s height.
-#        bindsym h resize shrink width 10 px or 10 ppt
-#        bindsym j resize grow height 10 px or 10 ppt
-#        bindsym k resize shrink height 10 px or 10 ppt
-#        bindsym l resize grow width 10 px or 10 ppt
-#
-#        # same bindings, but for the arrow keys
-#        bindsym Left resize shrink width 10 px or 10 ppt
-#        bindsym Down resize grow height 10 px or 10 ppt
-#        bindsym Up resize shrink height 10 px or 10 ppt
-#        bindsym Right resize grow width 10 px or 10 ppt
-#
-#        # back to normal: Enter or Escape or $mod+r
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#        bindsym $mod+r mode "default"
-#}
-#bindsym $mod+r mode "resize"
 
 # window settings
 gaps inner 5
@@ -226,9 +235,3 @@ exec --no-startup-id picom -b
 exec --no-startup-id openrgb -d 0 -m off -d 1 -m off 
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#        position top
-#}
