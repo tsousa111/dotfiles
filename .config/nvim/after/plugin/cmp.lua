@@ -158,7 +158,7 @@ cmp.setup {
         },
         {
             --This sources will only show up if there aren't any sources from the other list
-            { name = "buffer", keyword_length = 5 },
+            { name = "buffer", keyword_length = 3 },
         }
     ),
     confirm_opts = {
