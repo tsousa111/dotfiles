@@ -2,13 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-source $HOME/.config/fish/aliasrc
-
-fish_vi_key_bindings
-bind \cH backward-kill-path-component
-bind "[3;5~" kill-word
-
-
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export TERMINAL_PROG="alacritty"
@@ -23,8 +16,11 @@ export GOPATH="$XDG_DATA_HOME/go"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
+source $XDG_CONFIG_HOME/fish/aliasrc
 
-
+fish_vi_key_bindings
+bind \cH backward-kill-path-component
+bind "[3;5~" kill-word
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/tsousa/.ghcup/bin $PATH # ghcup-env
 fish_add_path $HOME/.local/share/nvim/mason/bin/
