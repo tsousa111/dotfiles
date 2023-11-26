@@ -2,7 +2,17 @@
 add_newline = false
 palette = "catppuccin_macchiato"
 
-format = "$directory$character"
+format = """
+$directory\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$character
+"""
 right_format = "$all"
 
 [line_break]
@@ -49,7 +59,7 @@ symbol = " "
 
 [git_branch]
 symbol = " "
-format = ' [$symbol$branch(:$remote_branch)]($style) '
+format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [golang]
 symbol = " "
