@@ -10,6 +10,10 @@ return require('packer').startup(function(use)
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
     use("stevearc/dressing.nvim")
+    use({
+        "folke/todo-comments.nvim",
+        requires = { "nvim-lua/plenary.nvim" }
+    })
 
     -- fidget change when rewrite version comes out
     use("j-hui/fidget.nvim")
