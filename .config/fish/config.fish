@@ -3,9 +3,10 @@ if status is-interactive
 end
 
 export EDITOR="nvim"
-export TERMINAL="alacritty"
-export TERMINAL_PROG="alacritty"
+export TERMINAL="kitty"
+export TERMINAL_PROG="kitty"
 export BROWSER="firefox"
+export PAGER="bat"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -27,6 +28,8 @@ fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
 fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.config/emacs/bin
+# google cloud bin
+fish_add_path /opt/google-cloud-cli/bin
 
 starship init fish | source
 

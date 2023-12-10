@@ -21,6 +21,9 @@ disabled = true
 [cmd_duration]
 disabled = true
 
+[gcloud]
+disabled = true
+
 [aws]
 symbol = "  "
 format = ' [$symbol($version(-$name) )]($style)'
@@ -110,6 +113,42 @@ symbol = " "
 symbol = " "
 format = ' [$symbol($version(-$name) )]($style)'
 
+[ocaml]
+symbol = "🐫 "
+format = '[$symbol($version )(\($switch_indicator$switch_name\) )]($style)' 
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
+
+[rust]
+symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
+
+[scala]
+symbol = " "
+
+[vagrant]
+symbol = " "
+format = ' [$symbol($version(-$name) )]($style)'
+
+[zig]
+symbol = "↯ "
+format = ' [$symbol($version(-$name) )]($style)'
+
 [os.symbols]
 Alpaquita = " "
 Alpine = " "
@@ -150,38 +189,6 @@ SUSE = " "
 Ubuntu = " "
 Unknown = " "
 Windows = "󰍲 "
-
-[package]
-symbol = "󰏗 "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-symbol = " "
-format = ' [$symbol($version(-$name) )]($style)'
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-format = ' [$symbol($version(-$name) )]($style)'
-
-[rust]
-symbol = " "
-format = ' [$symbol($version(-$name) )]($style)'
-
-[scala]
-symbol = " "
-
-[vagrant]
-symbol = " "
-format = ' [$symbol($version(-$name) )]($style)'
-
-[zig]
-symbol = "↯ "
-format = ' [$symbol($version(-$name) )]($style)'
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
