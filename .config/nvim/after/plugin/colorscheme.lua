@@ -1,6 +1,6 @@
 require("catppuccin").setup({
     flavour = "macchiato", -- latte, frappe, macchiato, mocha
-    transparent_background = false,
+    transparent_background = true,
     term_colors = false,
 
     no_italic = false, -- Force no italic
@@ -46,7 +46,7 @@ require("gruvbox").setup({
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
-  transparent_mode = false,
+  transparent_mode = true,
 })
 
 vim.o.background = "dark"
