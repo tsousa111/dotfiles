@@ -5,5 +5,5 @@ return {
     "tpope/vim-surround",
     "nvim-lualine/lualine.nvim",
     "nvim-treesitter/playground",
-    "runoshun/vim-alloy",
+    "j-hui/fidget.nvim",
 }
