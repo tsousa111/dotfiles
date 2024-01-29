@@ -1,3 +1,8 @@
+local colour = "catppuccin"
+function SetColour()
+    vim.cmd.colorscheme(colour)
+end
+
 return {
     {
         "catppuccin/nvim",
@@ -13,9 +18,10 @@ return {
                     telescope = true,
                     treesitter = true,
                     treesitter_context = true,
+                    fidget = true,
                 },
+                SetColour()
             })
-            vim.cmd.colorscheme("catppuccin")
         end
     },
 
@@ -31,6 +37,7 @@ return {
                 },
                 transparent_mode = true,
             })
+            SetColour()
         end
     },
 }

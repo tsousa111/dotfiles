@@ -157,9 +157,8 @@ return {
                                 end
                                 return true
                             end
-
                         },
-                        { name = 'nvim_lua' },
+                        --{ name = 'nvim_lua' },
                         { name = 'luasnip' },
                         { name = 'nvim_lsp_signature_help' },
                         { name = 'path' },
@@ -181,10 +180,10 @@ return {
                     })
 
                 },
-                experimental = {
-                    ghost_text = true,
-                    native_menu = false,
-                },
+                --experimental = {
+                --    ghost_text = true,
+                --    native_menu = false,
+                --},
             }
         end,
     },
@@ -193,8 +192,10 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "williamboman/mason.nvim",
+            "j-hui/fidget.nvim",
         },
         config = function()
+            require("fidget").setup()
             vim.api.nvim_create_augroup("_mason", { clear = true })
             require("mason").setup({
                 PATH = "skip",
@@ -208,10 +209,12 @@ return {
                 max_concurrent_installers = 10,
             })
 
-            local mason_lspconfig = require "mason-lspconfig"
+            local mason_lspconfig = require("mason-lspconfig")
 
             mason_lspconfig.setup({
-                ensure_installed = {},
+                ensure_installed = {
+
+                },
                 automatic_installation = true
             })
 
@@ -248,9 +251,10 @@ return {
                 vim.keymap.set('n', '<space>ge', function() vim.diagnostic.goto_next() end, bufopts)
                 vim.keymap.set('n', '<space>gE', function() vim.diagnostic.goto_prev() end, bufopts)
                 vim.keymap.set('n', '<space>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
+                vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, bufopts)
             end
 
-            local lspconfig = require "lspconfig"
+            local lspconfig = require("lspconfig")
 
             -- ADD NVIM CMP AS A CAPABILITY
             local lsp_defaults = lspconfig.util.default_config
@@ -274,5 +278,5 @@ return {
                 end,
             }
         end
-    }
+    },
 }

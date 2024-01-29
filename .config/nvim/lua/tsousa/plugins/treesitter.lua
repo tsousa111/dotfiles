@@ -40,7 +40,6 @@ return {
                 end,
             },
         },
-        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
         opts = {
             highlight = { enable = true },
             indent = { enable = true },
