@@ -1,7 +1,6 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',                -- lsp
             'hrsh7th/cmp-nvim-lua',                -- Nvim API completions
@@ -190,6 +189,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            "hrsh7th/nvim-cmp",
             "williamboman/mason-lspconfig.nvim",
             "williamboman/mason.nvim",
             "j-hui/fidget.nvim",
@@ -211,11 +211,42 @@ return {
 
             local mason_lspconfig = require("mason-lspconfig")
 
+            local lspconfig = require("lspconfig")
+
+            -- ADD NVIM CMP AS A CAPABILITY
+            local lsp_defaults = lspconfig.util.default_config
+
+            local capabilities = vim.tbl_deep_extend(
+                'force',
+                lsp_defaults.capabilities,
+                require('cmp_nvim_lsp').default_capabilities()
+            )
+
             mason_lspconfig.setup({
                 ensure_installed = {
 
                 },
-                automatic_installation = true
+                automatic_installation = true,
+                handlers = {
+                    function(server_name)
+                        lspconfig[server_name].setup({
+                            on_attach = on_attach,
+                            on_init = on_init,
+                            flags = lsp_flags,
+                            capabilities = capabilities,
+                        })
+                    end,
+                    -- add here other custom overrides
+                    ["lua_ls"] = function()
+                        lspconfig.lua_ls.setup({
+                            settings = {
+                                Lua = {
+                                    diagnostics = { globals = { "vim" } }
+                                }
+                            }
+                        })
+                    end,
+                }
             })
 
             local on_attach = function(client, bufnr)
@@ -239,30 +270,6 @@ return {
                 vim.keymap.set('n', '<leader>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
                 vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, bufopts)
             end
-
-            local lspconfig = require("lspconfig")
-
-            -- ADD NVIM CMP AS A CAPABILITY
-            local lsp_defaults = lspconfig.util.default_config
-
-            local capabilities = vim.tbl_deep_extend(
-                'force',
-                lsp_defaults.capabilities,
-                require('cmp_nvim_lsp').default_capabilities()
-            )
-
-            mason_lspconfig.setup_handlers({
-
-                -- This is a default handler that will be called for each installed server (also for new servers that are installed during a session)
-                function(server_name)
-                    lspconfig[server_name].setup {
-                        on_attach = on_attach,
-                        on_init = on_init,
-                        flags = lsp_flags,
-                        capabilities = capabilities,
-                    }
-                end,
-            })
         end
     },
 }
