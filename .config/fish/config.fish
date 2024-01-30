@@ -10,7 +10,7 @@ export PAGER="bat"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache" 
+export XDG_CACHE_HOME="$HOME/.cache"
 
 export GOPATH="$XDG_DATA_HOME/go"
 
@@ -18,8 +18,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
 source $XDG_CONFIG_HOME/fish/aliasrc
+bind \cf $XDG_DATA_HOME/scripts/tmux-sessionizer.sh
 
-fish_vi_key_bindings
+fish_default_key_bindings
+#fish_vi_key_bindings
 bind \cH backward-kill-path-component
 bind "[3;5~" kill-word
 

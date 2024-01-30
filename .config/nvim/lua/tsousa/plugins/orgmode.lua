@@ -3,9 +3,7 @@ return {
     config = function()
         -- -- Load custom treesitter grammar for org filetype
         require('orgmode').setup_ts_grammar()
-
         -- Treesitter configuration
-
         require('nvim-treesitter.configs').setup {
             -- If TS highlights are not enabled at all, or disabled via `disable` prop,
             -- highlighting will fallback to default Vim syntax highlighting
@@ -19,7 +17,7 @@ return {
         }
 
         require('orgmode').setup({
-            org_agenda_files = { '~/Nextcloud/org/**/*' },
+            org_agenda_files = { '~/Nextcloud/org/**/*', '~/Nextcloud/Documents/uni/**/*'},
             org_default_notes_file = '~/Nextcloud/org/refile.org',
         })
     end

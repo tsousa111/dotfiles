@@ -1,8 +1,10 @@
 # Alias File
 alias vim="nvim"
 
-alias ls="exa --icons" 
+
+alias ls="exa --icons"
 alias tree="exa --icons --tree"
+
 # Package manager aliases
 alias pac="sudo pacman"
 

@@ -11,7 +11,7 @@
 set $mod Mod1
 set $mod2 Mod4
 set $browser firefox
-set $terminal kitty
+set $terminal alacritty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -41,14 +41,14 @@ exec --no-startup-id nm-applet
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioMute exec --no-startup-id pamixer set --toggle-mute
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous 
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Use lux to adjust brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id lux -a 10% 
-bindsym XF86MonBrightnessDown exec --no-startup-id lux -s 10% -m 1 
+bindsym XF86MonBrightnessUp exec --no-startup-id lux -a 10%
+bindsym XF86MonBrightnessDown exec --no-startup-id lux -s 10% -m 1
 
 # Screen capture program
 bindsym Print exec --no-startup-id flameshot gui
@@ -65,7 +65,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec $terminal 
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -160,8 +160,8 @@ bindsym $mod+0 workspace number $ws10
 
 # assign workspace to output
 workspace $ws1 output primary
-workspace $ws2 output primary 
-workspace $ws5 output nonprimary 
+workspace $ws2 output primary
+workspace $ws5 output nonprimary
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -232,6 +232,6 @@ exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 2; exec firefox; workspace 1; exec kitty'
 exec --no-startup-id picom -b
-exec --no-startup-id openrgb -d 0 -m off -d 1 -m off 
-exec_always --no-startup-id ~/.config/polybar/launch.sh 
+exec --no-startup-id openrgb -d 0 -m off -d 1 -m off
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
