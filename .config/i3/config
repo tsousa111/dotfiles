@@ -230,7 +230,7 @@ assign [class="discord"] 5
 # startup programs
 exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id i3-msg 'workspace 2; exec firefox; workspace 1; exec kitty'
+exec --no-startup-id i3-msg 'workspace 2; exec firefox; workspace 1; exec $terminal'
 exec --no-startup-id picom -b
 exec --no-startup-id openrgb -d 0 -m off -d 1 -m off
 exec_always --no-startup-id ~/.config/polybar/launch.sh
