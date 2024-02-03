@@ -1,6 +1,6 @@
 return {
     {
-        "hrsh7th/nvim-cmp",
+        'hrsh7th/nvim-cmp',
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',                -- lsp
             'hrsh7th/cmp-nvim-lua',                -- Nvim API completions
@@ -11,6 +11,8 @@ return {
             'saadparwaiz1/cmp_luasnip',
             'L3MON4D3/LuaSnip',
             'onsails/lspkind.nvim',
+            'zbirenbaum/copilot.lua',
+            'zbirenbaum/copilot-cmp',
         },
         config = function()
             local cmp_status_ok, cmp = pcall(require, "cmp")
@@ -27,6 +29,13 @@ return {
             if not ok then
                 return
             end
+
+            -- this is to make copilot-cmp work better
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+            require("copilot_cmp").setup()
 
             lspkind.init {
                 symbol_map = {
@@ -89,6 +98,7 @@ return {
                         menu = {
                             buffer = "[buf]",
                             nvim_lsp = "[lsp]",
+                            copilot = "[cop]",
                             luasnip = "[snip]",
                             nvim_lsp_signature_help = "[sig]",
                             nvim_lua = "[lua]",
@@ -114,6 +124,7 @@ return {
                     {
                         { name = "nvim_lsp", },
                         { name = 'nvim_lua' },
+                        { name = "copilot" },
                         { name = 'luasnip' },
                         --{ name = 'nvim_lsp_signature_help' },
                         { name = 'orgmode' }
@@ -163,7 +174,7 @@ return {
 
                 -- },
                 experimental = {
-                    ghost_text = false,
+                    ghost_text = true,
                     native_menu = false,
                 },
             }
