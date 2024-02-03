@@ -1,5 +1,5 @@
-require("tsousa.set")
 require("tsousa.remap")
+require("tsousa.set")
 require("tsousa.lazy")
 
 local augroup = vim.api.nvim_create_augroup
