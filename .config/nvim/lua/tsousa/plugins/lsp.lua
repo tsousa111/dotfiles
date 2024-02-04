@@ -2,12 +2,11 @@ return {
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'hrsh7th/cmp-nvim-lsp',                -- lsp
-            'hrsh7th/cmp-nvim-lua',                -- Nvim API completions
-            'hrsh7th/cmp-nvim-lsp-signature-help', -- Show function signatures
-            'hrsh7th/cmp-buffer',                  --buffer completions
-            'hrsh7th/cmp-path',                    --path completions
-            'hrsh7th/cmp-cmdline',                 --cmdline completions
+            'hrsh7th/cmp-nvim-lsp', -- lsp
+            'hrsh7th/cmp-nvim-lua', -- Nvim API completions
+            'hrsh7th/cmp-buffer',   --buffer completions
+            'hrsh7th/cmp-path',     --path completions
+            'hrsh7th/cmp-cmdline',  --cmdline completions
             'saadparwaiz1/cmp_luasnip',
             'L3MON4D3/LuaSnip',
             'onsails/lspkind.nvim',
@@ -189,7 +188,13 @@ return {
             "j-hui/fidget.nvim",
         },
         config = function()
-            require("fidget").setup()
+            require("fidget").setup({
+                notification = {
+                    window = {
+                        winblend = 0,
+                    }
+                }
+            })
             vim.api.nvim_create_augroup("_mason", { clear = true })
             require("mason").setup({
                 PATH = "skip",
