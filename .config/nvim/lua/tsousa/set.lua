@@ -1,6 +1,10 @@
-vim.opt.guicursor=""
+vim.opt.wildignore = "__pycache__"
+vim.opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
+vim.opt.wildignore:append { "Cargo.lock", "Cargo.Bazel.lock" }
 
-vim.opt.nu = true
+vim.opt.guicursor = ""
+
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.errorbells = false
@@ -22,7 +26,7 @@ vim.opt.showmode = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
+vim.opt.showmatch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
@@ -31,15 +35,15 @@ vim.opt.isfname:append("@-@")
 
 -- from tj devries
 vim.opt.formatoptions = vim.opt.formatoptions
-  - "a" -- Auto formatting is BAD.
-  - "t" -- Don't auto format my code. I got linters for that.
-  + "c" -- In general, I like it when comments respect textwidth
-  + "q" -- Allow formatting comments w/ gq
-  - "o" -- O and o, don't continue comments
-  + "r" -- But do continue when pressing enter.
-  + "n" -- Indent past the formatlistpat, not underneath it.
-  + "j" -- Auto-remove comments if possible.
-  - "2" -- I'm not in gradeschool anymore
+    - "o" -- O and o, don't continue comments
+    - "a" -- Auto formatting is BAD.
+    - "t" -- Don't auto format my code. I got linters for that.
+    - "2" -- I'm not in gradeschool anymore
+    + "c" -- In general, I like it when comments respect textwidth
+    + "q" -- Allow formatting comments w/ gq
+    + "r" -- But do continue when pressing enter.
+    + "n" -- Indent past the formatlistpat, not underneath it.
+    + "j" -- Auto-remove comments if possible.
 
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
@@ -51,7 +55,6 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
 
-vim.opt.colorcolumn="80"
+vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
-
