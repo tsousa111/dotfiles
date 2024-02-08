@@ -104,20 +104,6 @@ return {
                             path = "[path]",
                         },
                     },
-                    -- format = function(entry, vim_item)
-                    --     -- Kind icons
-                    --     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                    --     -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-                    --     vim_item.menu = ({
-                    --         buffer = "[buf]",
-                    --         nvim_lsp = "[LSP]",
-                    --         luasnip = "[snip]",
-                    --         nvim_lsp_signature_help = "[Signature]",
-                    --         nvim_lua = "[lua]",
-                    --         path = "[path]",
-                    --     })[entry.source.name]
-                    --     return vim_item
-                    -- end,
                 },
                 sources = cmp.config.sources(
                     {
@@ -160,18 +146,6 @@ return {
                         cmp.config.compare.order,
                     },
                 },
-
-                --confirm_opts = {
-                --    behavior = cmp.ConfirmBehavior.Replace,
-                --    select = false,
-                --},
-                -- window = {
-                --     documentation = cmp.config.window.bordered(),
-                --     completion = cmp.config.window.bordered({
-                --         winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None"
-                --     })
-
-                -- },
                 experimental = {
                     ghost_text = true,
                     native_menu = false,
@@ -195,15 +169,16 @@ return {
                     }
                 }
             })
+
             vim.api.nvim_create_augroup("_mason", { clear = true })
             require("mason").setup({
                 PATH = "skip",
                 ui = {
                     icons = {
-                        package_installed = "✓",
-                        package_pending = "➜",
-                        package_uninstalled = "✗"
-                    },
+                        package_installed = "",
+                        package_pending = "󱥸",
+                        package_uninstalled = ""
+                    }
                 },
                 max_concurrent_installers = 10,
             })
@@ -226,9 +201,19 @@ return {
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
+            -- external (non mason) lsps
+            lspconfig.rust_analyzer.setup({
+                on_init = on_init,
+                flags = lsp_flags,
+                capabilities = capabilities,
+                cmd = {
+                    "rustup", "run", "stable", "rust-analyzer",
+                }
+            })
+
             mason_lspconfig.setup({
                 ensure_installed = {
-
+                    lua_ls,
                 },
                 automatic_installation = true,
                 handlers = {
