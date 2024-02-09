@@ -11,3 +11,6 @@ else
     xrandr --output HDMI-1-0 --above eDP-1
     xrandr --output HDMI-1-0 --primary
 fi
+
+pkill picom
+picom -b

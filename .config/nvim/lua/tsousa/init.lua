@@ -1,5 +1,5 @@
-require("tsousa.remap")
 require("tsousa.set")
+require("tsousa.remap")
 require("tsousa.lazy")
 
 local augroup = vim.api.nvim_create_augroup
@@ -11,6 +11,14 @@ local yank_group = augroup('HighlightYank', {})
 function R(name)
     require("plenary.reload").reload_module(name)
 end
+
+autocmd('BufWinEnter',{
+    group= TsousaGroup,
+    pattern = '*',
+    callback = function()
+        vim.opt.formatoptions:remove('o')
+    end
+})
 
 autocmd('TextYankPost', {
     group = yank_group,
@@ -45,7 +53,6 @@ autocmd("LspAttach", {
         vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, bufopts)
     end
 })
-
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

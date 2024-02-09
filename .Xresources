@@ -1,0 +1,3 @@
+#include ".Xresources.d/catppuccin-macchiato"
+!#include ".Xresources.d/gruvbox-dark"
+!#include ".Xresources.d/gruvbox-light"

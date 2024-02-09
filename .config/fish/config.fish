@@ -3,8 +3,8 @@ if status is-interactive
 end
 
 export EDITOR="nvim"
-export TERMINAL="alacritty"
-export TERMINAL_PROG="alacritty"
+export TERMINAL="st"
+export TERMINAL_PROG="st"
 export BROWSER="firefox"
 export PAGER="bat"
 
