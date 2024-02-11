@@ -71,7 +71,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/launchers/type-6/launcher.sh
+bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/launchers/type-4/launcher.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -230,8 +230,7 @@ assign [class="discord"] 5
 # startup programs
 exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id i3-msg 'workspace 2; exec $browser'
-exec --no-startup-id i3-msg 'workspace 1; exec $terminal'
+exec --no-startup-id i3-msg 'workspace 2; exec $browser; workspace 1; exec $terminal'
 exec --no-startup-id openrgb -d 0 -m off -d 1 -m off
 # sets up monitors and picom
 exec_always --no-startup-id ~/.local/share/scripts/monitor.sh
