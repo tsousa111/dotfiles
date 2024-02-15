@@ -12,34 +12,7 @@ return {
             require("lazy.core.loader").add_to_rtp(plugin)
             require("nvim-treesitter.query_predicates")
         end,
-        dependencies = {
-            {
-                "nvim-treesitter/nvim-treesitter-textobjects",
-                config = function()
-                    -- When in diff mode, we want to use the default
-                    -- vim text objects c & C instead of the treesitter ones.
-                    local move = require("nvim-treesitter.textobjects.move") ---@type table<string,fun(...)>
-                    local configs = require("nvim-treesitter.configs")
-                    for name, fn in pairs(move) do
-                        if name:find("goto") == 1 then
-                            move[name] = function(q, ...)
-                                if vim.wo.diff then
-                                    local config = configs.get_module("textobjects.move")
-                                    [name] ---@type table<string,string>
-                                    for key, query in pairs(config or {}) do
-                                        if q == query and key:find("[%]%[][cC]") then
-                                            vim.cmd("normal! " .. key)
-                                            return
-                                        end
-                                    end
-                                end
-                                return fn(q, ...)
-                            end
-                        end
-                    end
-                end,
-            },
-        },
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
         opts = {
             highlight = { enable = true },
             indent = { enable = true },
@@ -94,11 +67,10 @@ return {
         "romgrk/nvim-treesitter-context",
         config = function()
             require("treesitter-context").setup({
-                enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
                 throttle = true, -- Throttles plugin updates (may improve performance)
-                max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+                max_lines = 0,   -- How many lines the window should span. Values <= 0 mean no limit.
                 show_all_context = false,
-                patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+                patterns = {     -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
                     -- For all filetypes
                     -- Note that setting an entry here replaces all other patterns for this entry.
                     -- By setting the 'default' entry below, you can control which nodes you want to
