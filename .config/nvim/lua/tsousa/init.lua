@@ -8,10 +8,6 @@ local TsousaGroup = augroup('TsousaGroup', {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
-
 autocmd('BufWinEnter',{
     group= TsousaGroup,
     pattern = '*',

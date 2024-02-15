@@ -1,6 +1,8 @@
 local color = "catppuccin"
+local background = "dark"
 function SetColor()
     vim.cmd.colorscheme(color)
+    vim.opt.background = background
 end
 
 return {
