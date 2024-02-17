@@ -16,6 +16,7 @@ export GOPATH="$XDG_DATA_HOME/go"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig"
 
 source $XDG_CONFIG_HOME/fish/aliasrc
 
