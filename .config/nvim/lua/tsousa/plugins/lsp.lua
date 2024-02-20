@@ -7,34 +7,18 @@ return {
             'hrsh7th/cmp-buffer',   --buffer completions
             'hrsh7th/cmp-path',     --path completions
             'hrsh7th/cmp-cmdline',  --cmdline completions
-            'saadparwaiz1/cmp_luasnip',
             'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'rafamadriz/friendly-snippets',
             'onsails/lspkind.nvim',
-            'zbirenbaum/copilot.lua',
-            'zbirenbaum/copilot-cmp',
+            -- 'zbirenbaum/copilot-cmp',
         },
         config = function()
-            local cmp_status_ok, cmp = pcall(require, "cmp")
-            if not cmp_status_ok then
-                return
-            end
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
+            local lspkind = require("lspkind")
 
-            local snip_status_ok, luasnip = pcall(require, "luasnip")
-            if not snip_status_ok then
-                return
-            end
-
-            local ok, lspkind = pcall(require, "lspkind")
-            if not ok then
-                return
-            end
-
-            -- this is to make copilot-cmp work better
-            require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-            })
-            require("copilot_cmp").setup()
+            -- require("copilot_cmp").setup()
 
             lspkind.init {
                 symbol_map = {
@@ -43,7 +27,7 @@ return {
             }
             vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
-            require("luasnip/loaders/from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load()
 
             local check_backspace = function()
                 local col = vim.fn.col "." - 1
@@ -71,9 +55,7 @@ return {
                     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 
                     ["<C-k>"] = cmp.mapping(function(fallback)
-                        if luasnip.expandable() then
-                            luasnip.expand()
-                        elseif luasnip.expand_or_jumpable() then
+                        if luasnip.expand_or_jumpable() then
                             luasnip.expand_or_jump()
                         elseif check_backspace() then
                             fallback()
@@ -107,16 +89,16 @@ return {
                 },
                 sources = cmp.config.sources(
                     {
+                        { name = "nvim_lua" },
                         { name = "nvim_lsp", },
-                        { name = 'nvim_lua' },
+                        { name = "luasnip" },
+                        --{ name = "nvim_lsp_signature_help" },
+                        { name = "path" },
                         { name = "copilot" },
-                        { name = 'luasnip' },
-                        --{ name = 'nvim_lsp_signature_help' },
-                        { name = 'orgmode' }
+                        { name = "orgmode" },
                     },
                     {
                         --This sources will only show up if there aren't any sources from the other list
-                        { name = 'path' },
                         { name = "buffer", keyword_length = 5 },
                     }
                 ),
@@ -152,6 +134,17 @@ return {
                 },
             }
         end,
+    },
+    {
+        'zbirenbaum/copilot.lua',
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    enabled = true,
+                    keymap = { accept = "<C-q>" },
+                }
+            })
+        end
     },
     {
         "neovim/nvim-lspconfig",
