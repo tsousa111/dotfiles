@@ -3,7 +3,7 @@
     name = tsousa111
     signingkey = ~/.ssh/git/sign_key
 [commit]
-    gitsign = true
+    gpgsign = true
 [gpg]
     format = ssh
 [tag]
