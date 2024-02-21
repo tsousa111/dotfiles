@@ -135,6 +135,7 @@ return {
             }
         end,
     },
+
     {
         'zbirenbaum/copilot.lua',
         config = function()
