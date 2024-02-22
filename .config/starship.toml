@@ -38,6 +38,7 @@ format = ' [$symbol($version(-$name) )]($style)'
 
 [conda]
 symbol = " "
+format = "[$symbol$environment]($style)"
 
 [dart]
 symbol = " "
@@ -115,7 +116,7 @@ format = ' [$symbol($version(-$name) )]($style)'
 
 [ocaml]
 symbol = "🐫 "
-format = '[$symbol($version )(\($switch_indicator$switch_name\) )]($style)' 
+format = ' [$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
 
 [package]
 symbol = "󰏗 "

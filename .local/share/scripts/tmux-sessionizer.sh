@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Nextcloud ~/.config ~/gits ~/2sem ~/ -mindepth 1 -maxdepth 1 -type d,l | fzf)
+    selected=$(find -L ~/Nextcloud ~/.config ~/gits ~/2sem ~/ -mindepth 1 -maxdepth 1 -type d,l | fzf)
 fi
 
 if [[ -z "$selected" ]]; then
