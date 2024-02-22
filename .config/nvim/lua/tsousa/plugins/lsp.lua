@@ -80,6 +80,7 @@ return {
                             buffer = "[buf]",
                             nvim_lsp = "[lsp]",
                             copilot = "[cop]",
+                            org = "[org]",
                             luasnip = "[snip]",
                             nvim_lsp_signature_help = "[sig]",
                             nvim_lua = "[lua]",
@@ -138,12 +139,16 @@ return {
 
     {
         'zbirenbaum/copilot.lua',
+        event = "InsertEnter",
         config = function()
             require("copilot").setup({
-                suggestion = {
-                    enabled = true,
-                    keymap = { accept = "<C-q>" },
-                }
+                 suggestion = {
+                     enabled = true,
+                     auto_trigger = true,
+                     keymap = {
+                        accept = "<C-q>",
+                    },
+                 }
             })
         end
     },
