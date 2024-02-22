@@ -80,7 +80,7 @@ return {
                             buffer = "[buf]",
                             nvim_lsp = "[lsp]",
                             copilot = "[cop]",
-                            org = "[org]",
+                            orgmode = "[org]",
                             luasnip = "[snip]",
                             nvim_lsp_signature_help = "[sig]",
                             nvim_lua = "[lua]",
@@ -91,7 +91,7 @@ return {
                 sources = cmp.config.sources(
                     {
                         { name = "nvim_lua" },
-                        { name = "nvim_lsp", },
+                        { name = "nvim_lsp" },
                         { name = "luasnip" },
                         --{ name = "nvim_lsp_signature_help" },
                         { name = "path" },
@@ -142,13 +142,13 @@ return {
         event = "InsertEnter",
         config = function()
             require("copilot").setup({
-                 suggestion = {
-                     enabled = true,
-                     auto_trigger = true,
-                     keymap = {
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    keymap = {
                         accept = "<C-q>",
                     },
-                 }
+                }
             })
         end
     },
