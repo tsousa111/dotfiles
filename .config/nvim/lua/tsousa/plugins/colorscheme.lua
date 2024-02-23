@@ -11,7 +11,11 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                flavour = "macchiato", -- latte, frappe, macchiato, mocha
+                -- flavour = "macchiato", -- latte, frappe, macchiato, mocha
+                background = {
+                    dark = "macchiato",
+                    light = "mocha",
+                },
                 transparent_background = true,
                 term_colors = false,
                 integrations = {
@@ -28,18 +32,15 @@ return {
     },
 
     {
-        "ellisonleao/gruvbox.nvim",
+        "sainnhe/gruvbox-material",
         priority = 1000,
         config = function()
-            require("gruvbox").setup({
-                italic = {
-                    strings = false,
-                    comments = true,
-                    operators = false,
-                    folds = true,
-                },
-                transparent_mode = true,
-            })
+            local contrast = "hard"
+            if background == "light" then
+                contrast = "soft"
+            end
+            vim.g.gruvbox_material_background = contrast
+            vim.g.gruvbox_material_foreground = "material"
             SetColor()
         end
     },

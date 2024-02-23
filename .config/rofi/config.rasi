@@ -98,7 +98,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/colors/catppuccin.rasi"
+@import "~/.config/rofi/colors/catppuccin-dark.rasi"
 
 * {
     border-colour:               var(selected);

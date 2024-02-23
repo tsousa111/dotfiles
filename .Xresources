@@ -1,3 +1,5 @@
-#include ".Xresources.d/catppuccin-macchiato"
-! #include ".Xresources.d/gruvbox-dark"
+#include ".Xresources.d/catppuccin-dark"
+!#include ".Xresources.d/gruvbox-dark"
 !#include ".Xresources.d/gruvbox-light"
+
+st.alpha: 1
