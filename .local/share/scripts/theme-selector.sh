@@ -9,11 +9,14 @@ theme_options=(
 )
 
 # rofi script to get what theme to use
-chosen=$(printf '%s\n' "${theme_options[@]}" | rofi -dmenu -p "Choose a theme")
+chosen=$(printf '%s\n' "${theme_options[@]}" | rofi -dmenu -p "Theme")
 
-theme=$(echo "${chosen}" | cut -d- -f1)
-background=$(echo "${chosen}" | cut -d- -f2)
+theme=$(echo "${chosen}" | rev | cut -d- -f2- | rev)
 
+background=$(echo "${chosen}" | awk -F'-' '{print $NF}')
+
+echo "Theme: ${theme}"
+echo "Background: ${background}"
 # change rofi theme
 sed -i "s/\(@import \".config\/rofi\/colors\/\).*/\1${theme}-${background}.rasi\"/" ~/.config/rofi/config.rasi
 
@@ -24,5 +27,6 @@ sed -i "s/\(local background = \).*/\1\"${background}\"/" ~/.config/nvim/lua/tso
 # change xresources
 xresources_themes=".Xresources.d"
 sed -i "s/#include \".*\"/#include \"~\/${xresources_themes}\/${theme}-${background}\"/" ~/.Xresources
+xrdb ~/.Xresources
 
 

@@ -2,4 +2,4 @@
 !#include ".Xresources.d/gruvbox-dark"
 !#include ".Xresources.d/gruvbox-light"
 
-st.alpha: 1
+st.alpha: 0.95
