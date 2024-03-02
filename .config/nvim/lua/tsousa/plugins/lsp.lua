@@ -29,11 +29,6 @@ return {
 
             require("luasnip.loaders.from_vscode").lazy_load()
 
-            local check_backspace = function()
-                local col = vim.fn.col "." - 1
-                return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-            end
-
             cmp.setup {
                 snippet = {
                     expand = function(args)
@@ -54,20 +49,14 @@ return {
                     ),
                     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 
-                    ["<C-k>"] = cmp.mapping(function(fallback)
+                    ["<C-l>"] = cmp.mapping(function()
                         if luasnip.expand_or_jumpable() then
                             luasnip.expand_or_jump()
-                        elseif check_backspace() then
-                            fallback()
-                        else
-                            fallback()
                         end
                     end),
-                    ["<C-j>"] = cmp.mapping(function(fallback)
+                    ["<C-h>"] = cmp.mapping(function()
                         if luasnip.jumpable(-1) then
                             luasnip.jump(-1)
-                        else
-                            fallback()
                         end
                     end
                     ),
@@ -210,6 +199,24 @@ return {
                 }
             })
 
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("TsousaLspConfig", {}),
+                callback = function(e)
+                    local bufopts = { buffer = e.buf }
+                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+                    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+                    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+                    vim.keymap.set('n', '<leader>wss', vim.lsp.buf.workspace_symbol, bufopts)
+                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+                    vim.keymap.set('n', '<leader>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
+                    vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, bufopts)
+                end
+            })
+
             mason_lspconfig.setup({
                 ensure_installed = {
                     lua_ls,
@@ -224,11 +231,24 @@ return {
                         })
                     end,
                     -- add here other custom overrides
+                    ["hls"] = function()
+                        lspconfig.hls.setup({
+                            settings = {
+                                haskell = {
+                                    plugin = {
+                                        stan = { globalOn = false },
+                                        hlint = { config = { flags = { "--ignore=Eta reduce" } } }
+                                    }
+                                }
+                            }
+                        })
+                    end,
                     ["lua_ls"] = function()
                         lspconfig.lua_ls.setup({
                             settings = {
                                 Lua = {
-                                    diagnostics = { globals = { "vim" } }
+                                    diagnostics = { globals = { "vim" } },
+                                    telemetry = { enable = false }
                                 }
                             }
                         })

@@ -30,7 +30,11 @@ autocmd('TextYankPost', {
 autocmd({ "BufWritePre" }, {
     group = TsousaGroup,
     pattern = "*",
-    command = [[%s/\s\+$//e]],
+    callback = function ()
+        local cursor_pos = vim.fn.getpos('.')
+        vim.cmd([[%s/\s\+$//e]])
+        vim.fn.setpos('.', cursor_pos)
+    end
 })
 
 autocmd("LspAttach", {
