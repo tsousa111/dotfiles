@@ -188,6 +188,7 @@ return {
             vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+            vim.keymap.set('n', '<leader>ve', vim.diagnostic.setloclist)
 
             -- external (non mason) lsps
             lspconfig.rust_analyzer.setup({
@@ -212,7 +213,9 @@ return {
                     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
                     vim.keymap.set('n', '<leader>wss', vim.lsp.buf.workspace_symbol, bufopts)
                     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-                    vim.keymap.set('n', '<leader>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
+                    -- vim.keymap.set('n', '<leader>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
+                    vim.keymap.set('n', '<leader>fo',
+                        function() require("conform").format({ lsp_fallback = true }) end, bufopts)
                     vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, bufopts)
                 end
             })
