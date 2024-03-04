@@ -3,6 +3,10 @@ local background = "dark"
 function SetColor()
     vim.cmd.colorscheme(color)
     vim.opt.background = background
+
+    -- transparency
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 return {
@@ -14,9 +18,9 @@ return {
                 -- flavour = "macchiato", -- latte, frappe, macchiato, mocha
                 background = {
                     dark = "macchiato",
-                    light = "mocha",
+                    light = "latte",
                 },
-                transparent_background = true,
+                transparent_background = false,
                 term_colors = false,
                 integrations = {
                     cmp = true,
@@ -35,7 +39,7 @@ return {
         "sainnhe/gruvbox-material",
         priority = 1000,
         config = function()
-            local contrast = "hard"
+            local contrast = "medium"
             if background == "light" then
                 contrast = "soft"
             end
