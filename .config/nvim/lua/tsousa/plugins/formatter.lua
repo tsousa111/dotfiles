@@ -2,14 +2,16 @@ return {
     "stevearc/conform.nvim",
     config = function()
         require("conform").setup({
-            lua = { "stylua" },
-            python = { "isort", "blue" },
-            javascript = { "prettierd" },
-            typescript = { "prettierd" },
-            html = { "prettierd" },
-            json = { "prettierd" },
-            yaml = { "prettierd" },
-            markdown = { "prettierd" },
+            formatters_by_ft = {
+                lua = { "stylua" },
+                python = { "isort", "black" },
+                javascript = { "prettierd" },
+                typescript = { "prettierd" },
+                html = { "prettierd" },
+                json = { "prettierd" },
+                yaml = { "prettierd" },
+                markdown = { "prettierd" },
+            }
         })
         -- vim.api.nvim_create_autocmd("BufWritePre", {
         --     pattern = "*",
