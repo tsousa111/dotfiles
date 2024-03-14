@@ -1,0 +1,25 @@
+! hard *.background: #F9F5D7
+! medium *.background: #FBF1C7
+! soft
+*.background: #F2E5BC
+
+*.foreground: #654735
+
+*.color0:  #FBF1C7
+*.color8:  #FBF1C7
+*.color1:  #C14A4A
+*.color9:  #C14A4A
+*.color2:  #6C782E
+*.color10: #6C782E
+*.color3:  #C35E0A
+*.color11: #C35E0A
+*.color4:  #45707A
+*.color12: #45707A
+*.color5:  #945E80
+*.color13: #945E80
+*.color6:  #4C7A5D
+*.color14: #4C7A5D
+*.color7:  #654735
+*.color15: #654735
+
+i3wm.border: #F3EAC7

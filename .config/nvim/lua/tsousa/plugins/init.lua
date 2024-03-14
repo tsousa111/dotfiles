@@ -12,6 +12,10 @@ return {
 	"tpope/vim-repeat",
 	"laytan/cloak.nvim",
 	{
+		"ThePrimeagen/vim-be-good",
+        disabled = false,
+	},
+	{
 		"jbyuki/instant.nvim",
 		config = function()
 			vim.g.instant_username = "tsousa"

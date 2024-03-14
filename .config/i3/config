@@ -71,7 +71,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/launchers/type-4/launcher.sh
+bindsym $mod+d exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -180,32 +180,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# set colorscheme
-# set $red       #ed8796
-# set $rosewater #f4dbd6
-# set $flamingo  #f0c6c6
-# set $pink      #f5bde6
-# set $mauve     #c6a0f6
-# set $maroon    #ee99a0
-# set $peach     #f5a97f
-# set $green     #a6da95
-# set $teal      #8bd5ca
-# set $sky       #91d7e3
-# set $sapphire  #7dc4e4
-# set $blue      #8aadf4
-# set $lavender  #b7bdf8
-# set $fg     #cad3f5
-# set $subtext1  #b8c0e0
-# set $subtext0  #a5adcb
-# set $overlay2  #939ab7
-# set $overlay1  #8087a2
-# set $overlay0  #6e738d
-# set $surface2  #5b6078
-# set $surface1  #494d64
-# set $surface0  #363a4f
-# set $bg      #24273a
-# set $mantle    #1e2030
-# set $crust     #181926
 set_from_resource $bg i3wm.background #24273A
 set_from_resource $fg i3wm.foreground #CAD3F5
 set_from_resource $red i3wm.color1 #ED8796
@@ -214,9 +188,10 @@ set_from_resource $grey i3wm.color8 #5B6078
 set_from_resource $lightyellow i3wm.color11 #F4DBD6
 set_from_resource $white i3wm.color15 #A5ADCB
 set_from_resource $black i3wm.color0 #181926
+set_from_resource $border i3wm.border #ED8796
 
 # target                 title     bg  fg   indicator    border
-client.focused           $lavender $bg $fg  $lightyellow $lightgrey
+client.focused           $white    $bg $fg  $lightyellow $border
 client.focused_inactive  $white    $bg $fg  $lightyellow $black
 client.unfocused         $white    $bg $fg  $lightyellow $black
 client.urgent            $red      $bg $fg  $white       $red
@@ -231,17 +206,17 @@ bindsym $mod2+Shift+l resize grow width 10 px or 10 ppt
 
 # window settings
 gaps inner 5
-gaps top 37
+gaps top 32
 
-assign [class="^tidal-hifi$"] 5
+assign [class="tidal-hifi"] 5
 assign [class="discord"] 5
+assign [class="thunderbird"] 7
 
 # startup programs
-exec --no-startup-id nextcloud
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id i3-msg 'workspace 2; exec $browser; workspace 1; exec $terminal'
-exec --no-startup-id openrgb -d 0 -m off -d 1 -m off
 # sets up monitors and picom
 exec_always --no-startup-id ~/.local/share/scripts/monitor.sh
+exec --no-startup-id nextcloud
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id i3-msg 'workspace 1; exec $terminal'
+exec --no-startup-id openrgb -d 0 -m off -d 1 -m off
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-
