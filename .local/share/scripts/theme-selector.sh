@@ -43,6 +43,7 @@ sed -i "s/set -g status-style 'bg=.* fg=.*'/set -g status-style 'bg=${tmux_backg
 tmux source "$HOME/.config/tmux/tmux.conf"
 
 # change dunst
+# NOTE: need to change fish theme for gruvbox
 
 # change fish
 fish -c "echo 'y' | fish_config theme save '${chosen}'"
@@ -50,4 +51,4 @@ fish -c "echo 'y' | fish_config theme save '${chosen}'"
 # maybe change gtk theme?? and discord??
 
 # recompile i3
-i3-msg restart
+i3-msg -q restart
