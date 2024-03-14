@@ -9,8 +9,8 @@ theme_options=(
 )
 
 # rofi script to get what theme to use
-chosen=$(printf '%s\n' "${theme_options[@]}" | rofi -dmenu -p "Theme")
-if [[ -z $chosen ]]; then
+chosen=$(printf '%s\n' "${theme_options[@]}" | rofi -dmenu -p "Theme" -theme-str "configuration {show-icons:false;}")
+if [[ $chosen == "-" ]]; then
     exit 1
 fi
 theme=$(echo "${chosen}" | rev | cut -d- -f2- | rev)
@@ -45,9 +45,9 @@ tmux source "$HOME/.config/tmux/tmux.conf"
 # change dunst
 
 # change fish
-fish_config theme choose "$chosen"
+fish -c "echo 'y' | fish_config theme save '${chosen}'"
 
-# maybe change gtk theme??
+# maybe change gtk theme?? and discord??
 
 # recompile i3
 i3-msg restart

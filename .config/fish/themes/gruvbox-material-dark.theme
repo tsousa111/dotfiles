@@ -4,9 +4,9 @@ fish_color_keyword 7DAEA3
 fish_color_quote D8A657
 fish_color_redirection D4BE98
 fish_color_end E78A4E
-fish_color_error red
+fish_color_error EA6962
 fish_color_param D3869B
-fish_color_comment purple
+fish_color_comment D3869B
 fish_color_selection --background=504945
 fish_color_search_match --background=504945
 fish_color_operator A9B665

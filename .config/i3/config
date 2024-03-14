@@ -12,6 +12,7 @@ set $mod Mod1
 set $mod2 Mod4
 set $browser firefox
 set $terminal st
+set $theme_selector $HOME/.local/share/scripts/theme-selector.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -81,6 +82,9 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # start power menu (rofi)
 bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/applets/bin/powermenu.sh
 
+# theme selector
+bindsym $mod+Shift+t exec --no-startup-id $theme_selector
+
 # launch a browser
 bindsym $mod+b exec --no-startup-id $browser
 # change focus
@@ -118,7 +122,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -191,7 +195,7 @@ set_from_resource $black i3wm.color0 #181926
 set_from_resource $border i3wm.border #ED8796
 
 # target                 title     bg  fg   indicator    border
-client.focused           $white    $bg $fg  $lightyellow $border
+client.focused           $white    $fg $bg  $lightyellow $border
 client.focused_inactive  $white    $bg $fg  $lightyellow $black
 client.unfocused         $white    $bg $fg  $lightyellow $black
 client.urgent            $red      $bg $fg  $white       $red

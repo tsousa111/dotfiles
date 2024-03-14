@@ -1,4 +1,4 @@
-local color = "catppuccin"
+local color = "gruvbox-material"
 local background = "dark"
 local transparency = false
 function SetColor()
