@@ -10,8 +10,9 @@ theme_options=(
 
 # rofi script to get what theme to use
 chosen=$(printf '%s\n' "${theme_options[@]}" | rofi -dmenu -p "Theme" -theme-str "configuration {show-icons:false;}")
-if [[ $chosen == "-" ]]; then
-    exit 1
+
+if [[ $chosen == "" ]]; then
+    exit 0
 fi
 theme=$(echo "${chosen}" | rev | cut -d- -f2- | rev)
 
