@@ -21,19 +21,18 @@ export PKG_CONFIG_PATH="/usr/lib/pkgconfig"
 source $XDG_CONFIG_HOME/fish/aliasrc
 
 
-fish_default_key_bindings
-#fish_vi_key_bindings
+#fish_default_key_bindings
+fish_vi_key_bindings
 bind \cH backward-kill-path-component
 bind "[3;5~" kill-word
-bind \cf $XDG_DATA_HOME/scripts/tmux-sessionizer.sh
+bind -M insert \cf $XDG_DATA_HOME/scripts/tmux-sessionizer.sh
+bind -M default \cf $XDG_DATA_HOME/scripts/tmux-sessionizer.sh
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/tsousa/.ghcup/bin $PATH # ghcup-env
 fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
 fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.config/emacs/bin
-# google cloud bin
-fish_add_path /opt/google-cloud-cli/bin
 
 starship init fish | source
 

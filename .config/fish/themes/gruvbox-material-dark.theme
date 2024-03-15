@@ -1,17 +1,17 @@
 fish_color_normal D4BE98
-fish_color_command 89B482
+fish_color_command A9B665
 fish_color_keyword 7DAEA3
 fish_color_quote D8A657
 fish_color_redirection D4BE98
 fish_color_end E78A4E
 fish_color_error EA6962
-fish_color_param D3869B
-fish_color_comment D3869B
+fish_color_param D4BE98
+fish_color_comment 7C6F64
 fish_color_selection --background=504945
 fish_color_search_match --background=504945
 fish_color_operator A9B665
 fish_color_escape 7DAEA3
-fish_color_autosuggestion 8F3F71
+fish_color_autosuggestion 5A524C
 
 fish_pager_color_progress 8F3F71
 fish_pager_color_prefix 89B482
