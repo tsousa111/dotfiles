@@ -4,6 +4,7 @@ background = "#282828"
 foreground = "#D4BE98"
 separator_color= frame
 width = (200,370)
+offset = 3x35
 height = 350
 font = Roboto Mono Nerd Font 9
 

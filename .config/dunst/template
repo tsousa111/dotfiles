@@ -3,6 +3,7 @@ frame_color = "${fg}"
 background = "${bg}"
 foreground = "${fg}"
 separator_color= frame
+offset = 3x35
 width = (200,370)
 height = 350
 font = Roboto Mono Nerd Font 9
