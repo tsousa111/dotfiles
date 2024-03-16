@@ -1,7 +1,7 @@
 [global]
-frame_color = "#D4BE98"
-background = "#282828"
-foreground = "#D4BE98"
+frame_color = "${fg}"
+background = "${bg}"
+foreground = "${fg}"
 separator_color= frame
 width = (200,370)
 height = 350
@@ -14,5 +14,5 @@ timeout = 3
 timeout = 5
 
 [urgency_critical]
-frame_color = "#EA6962"
+frame_color = "${color1}"
 timeout = 10
