@@ -38,15 +38,16 @@ return {
 				mapping = {
 					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-					["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-					["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+					["<C-d>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<C-y>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Insert,
-						select = true,
-					}),
-					["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-
+					["<C-y>"] = cmp.mapping(
+						cmp.mapping.confirm({
+							behavior = cmp.ConfirmBehavior.Insert,
+							select = true,
+						}),
+						{ "i", "c" }
+					),
 					["<C-l>"] = cmp.mapping(function()
 						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
@@ -57,6 +58,20 @@ return {
 							luasnip.jump(-1)
 						end
 					end),
+					["<C-Space>"] = cmp.mapping({
+						i = cmp.mapping.complete(),
+						c = function(
+							_ --[[fallback]]
+						)
+							if cmp.visible() then
+								if not cmp.confirm({ select = true }) then
+									return
+								end
+							else
+								cmp.complete()
+							end
+						end,
+					}),
 				},
 
 				formatting = {
@@ -175,8 +190,7 @@ return {
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 			vim.keymap.set("n", "<leader>ve", vim.diagnostic.setloclist)
 
-
-            -- autocmd LSP keybinds
+			-- autocmd LSP keybinds
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("TsousaLspConfig", {}),
 				callback = function(e)

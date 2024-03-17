@@ -41,11 +41,12 @@ return {
 		"sainnhe/gruvbox-material",
 		priority = 1000,
 		config = function()
-			local contrast = "medium"
+			local contrast = "hard"
 			if background == "light" then
 				contrast = "soft"
 			end
 			vim.g.gruvbox_material_background = contrast
+            -- Available values:   `'material'`, `'mix'`, `'original'`
 			vim.g.gruvbox_material_foreground = "material"
 			SetColor()
 		end,
