@@ -47,7 +47,7 @@ return {
 			end
 			vim.g.gruvbox_material_background = contrast
             -- Available values:   `'material'`, `'mix'`, `'original'`
-			vim.g.gruvbox_material_foreground = "material"
+			vim.g.gruvbox_material_foreground = "original"
 			SetColor()
 		end,
 	},
