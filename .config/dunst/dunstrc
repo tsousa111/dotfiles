@@ -1,10 +1,10 @@
 [global]
 frame_color = "#D4BE98"
-background = "#282828"
+background = "#1D2021"
 foreground = "#D4BE98"
 separator_color= frame
-width = (200,370)
 offset = 3x35
+width = (200,370)
 height = 350
 font = Roboto Mono Nerd Font 9
 

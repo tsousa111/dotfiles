@@ -1,5 +1,6 @@
-#include ".Xresources.d/catppuccin-dark"
-!#include ".Xresources.d/gruvbox-dark"
-!#include ".Xresources.d/gruvbox-light"
+#include ".Xresources.d/gruvbox-material-dark"
+
+Xcursor.size: 14
 
 st.alpha: 0.95
+st.font: Roboto Mono Nerd Font Mono:style=Regular:pixelsize=18:antialias=true:autohint=true

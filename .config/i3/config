@@ -13,6 +13,7 @@ set $mod2 Mod4
 set $browser firefox
 set $terminal st
 set $theme_selector $HOME/.local/share/scripts/theme-selector.sh
+set $monitor_script $HOME/.local/share/scripts/monitor.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -85,6 +86,9 @@ bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/applets/bin/powermenu.sh
 # theme selector
 bindsym $mod+Shift+t exec --no-startup-id $theme_selector
 
+# monitor
+bindsym $mod+m exec --no-startup-id $monitor_script
+
 # launch a browser
 bindsym $mod+b exec --no-startup-id $browser
 # change focus
@@ -119,6 +123,9 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+# toggle sticky floating windows
+bindsym $mod+Shift+s sticky toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -218,7 +225,7 @@ assign [class="thunderbird"] 7
 
 # startup programs
 # sets up monitors and picom
-exec_always --no-startup-id ~/.local/share/scripts/monitor.sh
+exec --no-startup-id $monitor_script
 exec --no-startup-id nextcloud
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec $terminal'

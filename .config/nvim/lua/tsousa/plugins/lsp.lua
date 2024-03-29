@@ -245,6 +245,7 @@ return {
 						lspconfig.hls.setup({
 							settings = {
 								haskell = {
+                                    formattingProvider = "fourmolu",
 									plugin = {
 										stan = { globalOn = false },
 										hlint = { config = { flags = { "--ignore=Eta reduce" } } },
