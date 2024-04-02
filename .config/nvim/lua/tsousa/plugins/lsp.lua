@@ -205,7 +205,7 @@ return {
 					vim.keymap.set("n", "<leader>wss", vim.lsp.buf.workspace_symbol, bufopts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 					-- vim.keymap.set('n', '<leader>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
-					vim.keymap.set("n", "<leader>fo", function()
+					vim.keymap.set({ "n", "v" }, "<leader>fo", function()
 						require("conform").format({ lsp_fallback = true })
 					end, bufopts)
 					vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, bufopts)
@@ -245,7 +245,7 @@ return {
 						lspconfig.hls.setup({
 							settings = {
 								haskell = {
-                                    formattingProvider = "fourmolu",
+									formattingProvider = "fourmolu",
 									plugin = {
 										stan = { globalOn = false },
 										hlint = { config = { flags = { "--ignore=Eta reduce" } } },
