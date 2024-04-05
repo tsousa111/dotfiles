@@ -11,7 +11,7 @@ theme_options=(
 # rofi script to get what theme to use
 chosen=$(printf '%s\n' "${theme_options[@]}" | rofi -dmenu -p "Theme" -theme-str "configuration {show-icons:false;}")
 
-if [[ $chosen == "" ]]; then
+if [[ -z $chosen ]]; then
     exit 0
 fi
 theme=$(echo "${chosen}" | rev | cut -d- -f2- | rev)
@@ -20,8 +20,8 @@ tmux_bg=$(echo "${chosen}" | awk -F'-' '{print $NF}')
 
 # change rofi theme
 rofi_conf=~/.config/rofi/config.rasi
-rofi_theme_check="${rofi_conf}"/"${chosen}".rasi
-if [[ -f $rofi_theme_check ]]; then
+rofi_theme_check=~/.config/rofi/colors/"${chosen}".rasi
+if [[ ! -f $rofi_theme_check ]]; then
     echo "Rofi Theme ${chosen} not found"
     exit 1
 fi
