@@ -9,6 +9,7 @@ return {
         require("org-bullets").setup({
             symbols = {
                 headlines = { "◉", "○", "●", "✸" },
+                checkboxes = false,
             },
         })
         require('orgmode').setup_ts_grammar()
