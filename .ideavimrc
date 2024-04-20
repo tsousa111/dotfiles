@@ -1,0 +1,66 @@
+set scrolloff=8
+set linenumber
+set relativenumber
+set showmode
+set showcmd
+set visualbell
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+
+set surround
+set commentary
+
+set highlightedyank
+
+let mapleader = " "
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+xnoremap <leader>p "_dP
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+nnoremap Q <nop>
+
+nmap <leader>zz <Action>(ToggleZenMode)
+
+nnoremap ]q :cnext<CR>zz
+nnoremap [q :cprev<CR>zz
+nnoremap ]l :lnext<CR>zz
+nnoremap [l :lprev<CR>zz
+
+map <leader>pf <action>(GotoFile)
+map <leader>pg <action>(FindInPath)
+
+" lsp actions
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gD <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+nmap <leader>fo <Action>(ReformatCode)
+
+imap <C-y> <Action>(EditorChooseLookupItem)
+
+
