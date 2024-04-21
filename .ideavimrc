@@ -11,7 +11,7 @@ set incsearch
 set hlsearch
 
 
-set surround
+set surrouncontactd
 set commentary
 
 set highlightedyank
@@ -45,12 +45,15 @@ nnoremap [q :cprev<CR>zz
 nnoremap ]l :lnext<CR>zz
 nnoremap [l :lprev<CR>zz
 
-map <leader>pf <action>(GotoFile)
-map <leader>pg <action>(FindInPath)
+map <leader>pf <Action>(GotoFile)
+map <leader>pg <Action>(FindInPath)
 
-" lsp actions
+" erros
+nmap <leader>vd <Action>(ShowErrorDescription)
 nmap ]d <Action>(GotoNextError)
 nmap [d <Action>(GotoPreviousError)
+
+" lsp actions
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gD <Action>(GotoTypeDeclaration)
@@ -60,7 +63,10 @@ nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gf <Action>(Back)
 nmap <leader>gb <Action>(Forward)
 nmap <leader>fo <Action>(ReformatCode)
+vmap <leader>fo <Action>(ReformatCode)
 
 imap <C-y> <Action>(EditorChooseLookupItem)
-
-
+imap <C-l> <Action>(NextTemplateVariable)
+smap <C-l> <Action>(NextTemplateVariable)
+imap <C-h> <Action>(PreviousTemplateVariable)
+smap <C-h> <Action>(PreviousTemplateVariable)
