@@ -7,6 +7,7 @@ return {
 				python = { "black" },
 				javascript = { "prettierd" },
 				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
 				html = { "prettierd" },
 				json = { "prettierd" },
 				yaml = { "prettierd" },
