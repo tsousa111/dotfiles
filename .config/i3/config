@@ -219,7 +219,7 @@ bindsym $mod2+Shift+l resize grow width 10 px or 10 ppt
 gaps inner 2
 gaps top 32
 
-assign [class="tidal-hifi"] 5
+assign [class="tidal-hifi"] 4
 assign [class="discord"] 5
 assign [class="vesktop"] 5
 assign [class="thunderbird"] 7
