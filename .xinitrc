@@ -37,7 +37,7 @@ if [ -f /usr/bin/prime-offload ]; then
 fi
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
+/usr/bin/xscreensaver -no-splash &
 # setup monitors (laptop only)
 if [ -f /usr/bin/envycontrol ]; then
 	gpu_mode=$(/usr/bin/envycontrol -q)
