@@ -1,0 +1,12 @@
+{
+    "from": "User",
+    "inherits": "Elegoo Neptune 4 Pro (0.4 nozzle)",
+    "is_custom_defined": "0",
+    "max_layer_height": [
+        "0.2"
+    ],
+    "name": "Elegoo Neptune 4 Pro",
+    "print_host": "192.168.1.81",
+    "printer_settings_id": "Elegoo Neptune 4 Pro",
+    "version": "2.0.2.0"
+}
