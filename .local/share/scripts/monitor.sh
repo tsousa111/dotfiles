@@ -8,9 +8,11 @@ if [ -f /usr/bin/envycontrol ]; then
 		xrandr --output HDMI-0 --above eDP-1-1
 		xrandr --output HDMI-0 --primary
 	else
-		xrandr --auto
-		xrandr --output HDMI-1-0 --above eDP-1
-		xrandr --output HDMI-1-0 --primary
+        if [[ -n $(xrandr --listactivemonitors | grep HDMI-1-0) ]]; then
+            xrandr --output eDP-1 --off --output HDMI-1-0 --auto
+        else
+            xrandr --auto
+        fi
 	fi
 fi
 
