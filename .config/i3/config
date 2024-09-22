@@ -216,7 +216,7 @@ bindsym $mod2+Shift+k resize shrink height 10 px or 10 ppt
 bindsym $mod2+Shift+l resize grow width 10 px or 10 ppt
 
 # window settings
-gaps inner 2
+gaps inner 1
 gaps top 32
 
 assign [class="tidal-hifi"] 4
