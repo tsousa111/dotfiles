@@ -11,6 +11,7 @@ export PAGER="bat"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 export GOPATH="$XDG_DATA_HOME/go"
 
@@ -33,7 +34,9 @@ fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
 fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.config/emacs/bin
-
+fish_add_path $ANDROID_HOME/emulator/
+fish_add_path $ANDROID_HOME/platform-tools/
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin/
 starship init fish | source
 
 # >>> conda initialize >>>
