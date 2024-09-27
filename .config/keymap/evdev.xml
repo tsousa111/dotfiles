@@ -1,0 +1,15 @@
+    <layout>
+      <configItem>
+        <!-- Keyboard indicator for custom layouts -->
+        <name>prog</name>
+        <shortDescription>en</shortDescription>
+        <description>English (US,prog modded symbols)</description>
+        <countryList>
+          <iso3166Id>US</iso3166Id>
+        </countryList>
+        <languageList>
+          <iso639Id>eng</iso639Id>
+        </languageList>
+      </configItem>
+    </layout>
+
