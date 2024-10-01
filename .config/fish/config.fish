@@ -15,6 +15,7 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship.toml"
 
 export GOPATH="$XDG_DATA_HOME/go"
+export ANDROID_HOME="/home/tsousa/Android/Sdk/"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
@@ -35,24 +36,9 @@ fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
 fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.config/emacs/bin
-fish_add_path $ANDROID_HOME/emulator/
-fish_add_path $ANDROID_HOME/platform-tools/
-fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin/
+
+fish_add_path $ANDROID_HOME/emulator
+fish_add_path $ANDROID_HOME/platform-tools
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+
 starship init fish | source
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /home/tsousa/.miniforge3/bin/conda
-    eval /home/tsousa/.miniforge3/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/home/tsousa/.miniforge3/etc/fish/conf.d/conda.fish"
-        . "/home/tsousa/.miniforge3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/home/tsousa/.miniforge3/bin" $PATH
-    end
-end
-
-if test -f "/home/tsousa/.miniforge3/etc/fish/conf.d/mamba.fish"
-    source "/home/tsousa/.miniforge3/etc/fish/conf.d/mamba.fish"
-end
-# <<< conda initialize <<<
