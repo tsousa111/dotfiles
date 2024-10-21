@@ -136,22 +136,27 @@ return {
 			})
 		end,
 	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
 
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({
-	-- 			suggestion = {
-	-- 				enabled = true,
-	-- 				auto_trigger = true,
-	-- 				keymap = {
-	-- 					accept = "<C-q>",
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"zbirenbaum/copilot.lua",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					keymap = {
+						accept = "<C-q>",
+					},
+				},
+			})
+		end,
+	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -219,15 +224,15 @@ return {
 			local capabilities =
 				vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 			-- external (non mason) lsps
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-				cmd = {
-					"rustup",
-					"run",
-					"stable",
-					"rust-analyzer",
-				},
-			})
+			-- lspconfig.rust_analyzer.setup({
+			-- 	capabilities = capabilities,
+			-- 	cmd = {
+			-- 		"rustup",
+			-- 		"run",
+			-- 		"stable",
+			-- 		"rust-analyzer",
+			-- 	},
+			-- })
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
