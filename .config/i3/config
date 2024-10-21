@@ -221,7 +221,8 @@ gaps top 32
 
 assign [class="tidal-hifi"] 4
 assign [class="discord"] 5
-assign [class="vesktop"] 5
+assign [class="Element"] 6
+assign [class="Signal"] 6
 assign [class="thunderbird"] 7
 
 # startup programs
