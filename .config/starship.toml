@@ -120,6 +120,7 @@ format = ' [$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
 
 [package]
 symbol = "󰏗 "
+format = ' [$symbol($version(-$name) )]($style)'
 
 [pijul_channel]
 symbol = " "
