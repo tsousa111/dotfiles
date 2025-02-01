@@ -5,6 +5,7 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -54,6 +55,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id lux -s 10% -m 1; exec notify-
 
 # Screen capture program
 bindsym Print exec --no-startup-id flameshot gui
+
+# Clipboard manager
+bindsym $mod+c exec --no-startup-id copyq show
 
 # Remove title border
 default_border pixel 1
@@ -116,7 +120,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+bindsym $mod+n split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -221,14 +225,19 @@ gaps top 32
 
 assign [class="tidal-hifi"] 4
 assign [class="discord"] 5
+assign [class="vesktop"] 5
 assign [class="Element"] 6
 assign [class="Signal"] 6
 assign [class="thunderbird"] 7
 
+for_window [instance="^copyq$" class="^copyq$"] floating enable, resize set 600 600, move position center, border pixel 1
 # startup programs
 # sets up monitors and picom
 exec_always --no-startup-id $monitor_script
 exec --no-startup-id nextcloud
+
+exec --no-startup-id copyq
+
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec $terminal'
 exec --no-startup-id openrgb -d 0 -m off -d 1 -m off

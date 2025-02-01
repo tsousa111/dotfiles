@@ -36,7 +36,7 @@ if [ -f /usr/bin/prime-offload ]; then
 	/usr/bin/prime-offload
 fi
 
-/usr/lib/xfce-polkit/xfce-polkit &
+# /usr/lib/xfce-polkit/xfce-polkit &
 /usr/bin/xscreensaver -no-splash &
 # setup monitors (laptop only)
 if [ -f /usr/bin/envycontrol ]; then

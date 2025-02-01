@@ -12,6 +12,8 @@ return {
 				json = { "prettierd" },
 				yaml = { "prettierd" },
 				markdown = { "prettierd" },
+				bib = { "bibtex-tidy" },
+				tex = { "latexindent" },
 			},
 		})
 		-- vim.api.nvim_create_autocmd("BufWritePre", {
