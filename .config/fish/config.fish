@@ -26,8 +26,9 @@ source $XDG_CONFIG_HOME/fish/aliasrc
 
 #fish_default_key_bindings
 fish_vi_key_bindings
+set fish_cursor_insert block
 bind \cH backward-kill-path-component
-bind "[3;5~" kill-word
+# bind "[3;5~" kill-word
 bind -M insert \cf $XDG_DATA_HOME/scripts/tmux-sessionizer.sh
 bind -M default \cf $XDG_DATA_HOME/scripts/tmux-sessionizer.sh
 
