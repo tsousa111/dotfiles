@@ -7,6 +7,7 @@ export TERMINAL="st"
 export TERMINAL_PROG="st"
 export BROWSER="firefox"
 export PAGER="bat"
+export LC_TIME="en_US.UTF-8"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -37,6 +38,7 @@ fish_add_path $HOME/.local/share/nvim/mason/bin/
 fish_add_path $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
 fish_add_path $HOME/.cargo/bin/
 fish_add_path $HOME/.config/emacs/bin
+fish_add_path $HOME/.local/bin/
 
 fish_add_path $ANDROID_HOME/emulator
 fish_add_path $ANDROID_HOME/platform-tools

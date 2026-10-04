@@ -1,12 +1,18 @@
 {
     "from": "User",
     "inherits": "Elegoo Neptune 4 Pro (0.4 nozzle)",
-    "is_custom_defined": "0",
+    "machine_start_gcode": ";ELEGOO NEPTUNE 4 PRO\nM220 S100 ;Set the feed speed to 100%\nM221 S100 ;Set the flow rate to 100%\nM104 S140\nM190 S[bed_temperature_initial_layer_single]\nG90\nG28 ;home\nG1 Z10 F300\nG1 X67.5 Y0 F6000\nG1 Z0 F300\n\nBED_MESH=adaptive\n\nM109 S[nozzle_temperature_initial_layer]\nG92 E0 ;Reset Extruder\nG1 X67.5 Y0 Z0.4 F300 ;Move to start position\nG1 X167.5 E30 F400 ;Draw the first line\nG1 Z0.6 F120.0 ;Move to side a little\nG1 X162.5 F3000\nG92 E0 ;Reset Extruder",
     "max_layer_height": [
         "0.2"
     ],
     "name": "Elegoo Neptune 4 Pro",
     "print_host": "192.168.1.81",
+    "printer_extruder_id": [
+        "1"
+    ],
+    "printer_extruder_variant": [
+        "Direct Drive Standard"
+    ],
     "printer_settings_id": "Elegoo Neptune 4 Pro",
     "version": "2.0.2.0"
 }
