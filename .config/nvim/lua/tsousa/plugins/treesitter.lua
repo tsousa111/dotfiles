@@ -1,21 +1,10 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		version = false, -- last release is way too old and doesn't work on Windows
+		branch = "main",
+		lazy = false, -- o branch main não suporta lazy-loading
 		build = ":TSUpdate",
-		init = function(plugin)
-			-- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-			-- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-			-- no longer trigger the **nvim-treeitter** module to be loaded in time.
-			-- Luckily, the only thins that those plugins need are the custom queries, which we make available
-			-- during startup.
-			require("lazy.core.loader").add_to_rtp(plugin)
-            -- require("nvim-treesitter.query_predicates")
-		end,
-		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 		opts = {
-			highlight = { enable = true },
-			indent = { enable = true },
 			ensure_installed = {
 				"bash",
 				"c",
@@ -38,28 +27,46 @@ return {
 				"haskell",
 				"rust",
 			},
-			textobjects = {
-				move = {
-					enable = true,
-					goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
-					goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-					goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
-					goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
-				},
-			},
 		},
 		config = function(_, opts)
-			if type(opts.ensure_installed) == "table" then
-				local added = {}
-				opts.ensure_installed = vim.tbl_filter(function(lang)
-					if added[lang] then
-						return false
+			require("nvim-treesitter").install(opts.ensure_installed)
+
+			-- highlight + indent para qualquer filetype com parser instalado
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("tsousa_treesitter", { clear = true }),
+				callback = function(ev)
+					if pcall(vim.treesitter.start, ev.buf) then
+						vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 					end
-					added[lang] = true
-					return true
-				end, opts.ensure_installed)
+				end,
+			})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		lazy = false,
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
+				move = { set_jumps = true },
+			})
+
+			local move = require("nvim-treesitter-textobjects.move")
+			local maps = {
+				["]f"] = { move.goto_next_start, "@function.outer" },
+				["]c"] = { move.goto_next_start, "@class.outer" },
+				["]F"] = { move.goto_next_end, "@function.outer" },
+				["]C"] = { move.goto_next_end, "@class.outer" },
+				["[f"] = { move.goto_previous_start, "@function.outer" },
+				["[c"] = { move.goto_previous_start, "@class.outer" },
+				["[F"] = { move.goto_previous_end, "@function.outer" },
+				["[C"] = { move.goto_previous_end, "@class.outer" },
+			}
+			for lhs, m in pairs(maps) do
+				vim.keymap.set({ "n", "x", "o" }, lhs, function()
+					m[1](m[2], "textobjects")
+				end)
 			end
-			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{
