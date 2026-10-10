@@ -10,7 +10,7 @@ return {
 			-- Luckily, the only thins that those plugins need are the custom queries, which we make available
 			-- during startup.
 			require("lazy.core.loader").add_to_rtp(plugin)
-			require("nvim-treesitter.query_predicates")
+            -- require("nvim-treesitter.query_predicates")
 		end,
 		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 		opts = {

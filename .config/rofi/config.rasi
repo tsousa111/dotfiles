@@ -1,6 +1,6 @@
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window";
+	modi: "drun";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -19,7 +19,7 @@ configuration {
 	/*---------- Drun settings ----------*/
 	drun-categories: "";
 	drun-match-fields: "name,generic,exec,categories,keywords";
-	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	drun-display-format: "{name}";
 	drun-show-actions: false;
 	drun-url-launcher: "xdg-open";
 	drun-use-desktop-cache: false;
@@ -44,7 +44,7 @@ configuration {
 	/*---------- Window switcher settings ----------*/
 	window-match-fields: "title,class,role,name,desktop";
 	window-command: "wmctrl -i -R {window}";
-	window-format: "{w} - {c} - {t:0}";
+	window-format: "{w} · {c} · {t}";
 	window-thumbnail: false;
 
 	/*---------- History and Sorting ----------*/
@@ -53,13 +53,13 @@ configuration {
 	max-history-size: 25;
 
 	/*---------- Display setting ----------*/
-	display-window: "Windows";
+	display-window: "";
 	display-windowcd: "Window CD";
-	display-run: "Run";
-	display-drun: "Apps";
+	display-run: "";
+	display-drun: "";
 	display-combi: "Combi";
 	display-keys: "Keys";
-	display-filebrowser: "Files";
+	display-filebrowser: "";
 
 	/*---------- Misc setting ----------*/
 	terminal: "rofi-sensible-terminal";
@@ -83,18 +83,6 @@ configuration {
       delay:  0;
     }
 
-}
-
-/*****----- Configuration -----*****/
-configuration {
-	modi:                       "drun";
-    show-icons:                 true;
-    display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
-	drun-display-format:        "{name}";
-	window-format:              "{w} · {c} · {t}";
 }
 
 /*****----- Global Properties -----*****/

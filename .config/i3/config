@@ -85,7 +85,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # start power menu (rofi)
-bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/applets/bin/powermenu.sh
+bindsym $mod+p exec --no-startup-id $HOME/.config/rofi/powermenu.sh
 
 # theme selector
 bindsym $mod+Shift+t exec --no-startup-id $theme_selector
@@ -235,8 +235,9 @@ for_window [instance="^copyq$" class="^copyq$"] floating enable, resize set 600 
 # startup programs
 # sets up monitors and picom
 exec_always --no-startup-id $monitor_script
-exec --no-startup-id opencloud
+exec_always --no-startup-id setxkbmap -layout us,pt -option '' -option caps:escape_shifted_capslock -option grp:win_space_toggle
 
+exec --no-startup-id opencloud
 exec --no-startup-id copyq
 
 exec --no-startup-id nitrogen --restore
